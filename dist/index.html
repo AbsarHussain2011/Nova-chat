@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NovaChat AI</title>
+<meta name="description" content="Multi-provider AI chat with code preview and image generation.">
+<meta name="theme-color" content="#0b0b14">
+<meta name="color-scheme" content="dark light">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NovaChat">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<style>
+html,body{height:100%;margin:0;background:#0b0b14;color:#ececf6;font:15px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.boot{height:100%;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;padding:24px}
+.boot img{width:84px;height:84px;border-radius:24px;box-shadow:0 12px 40px #7c5cff66}
+.boot p{margin:0;color:#8b8ba7}
+.boot button{display:none;border:0;border-radius:10px;padding:8px 16px;background:#7c5cff;color:#fff;font:inherit;font-weight:600}
+</style>
+<script>
+/* apply the saved theme before first paint so there is no flash */
+try{var c=JSON.parse(localStorage.getItem('nova.cfg')||'{}'),t=c.theme;
+if(t==='system')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='light'){document.documentElement.dataset.theme='light';}}catch(e){}
+</script>
+<link rel="stylesheet" href="/app-IYQ7TW3J.css">
+</head>
+<body>
+<div id="root">
+  <div class="boot" id="boot">
+    <img src="/icons/icon-192.png" alt="NovaChat" width="84" height="84">
+    <p id="boot-msg">Loading NovaChat…</p>
+    <button id="boot-btn" onclick="location.reload()">Reload</button>
+  </div>
+</div>
+<noscript><p style="padding:24px;text-align:center">NovaChat needs JavaScript to run.</p></noscript>
+<script>
+/* if the app has not started after a few seconds, say so instead of staying blank */
+(function(){
+  function fail(msg){
+    if(window.__novaReady)return;
+    var m=document.getElementById('boot-msg'),b=document.getElementById('boot-btn');
+    if(m)m.textContent=msg;if(b)b.style.display='inline-block';
+  }
+  addEventListener('error',function(e){fail('NovaChat could not start: '+(e.message||'script error'))});
+  setTimeout(function(){fail('NovaChat is taking too long to start. Check your connection and reload.')},8000);
+})();
+</script>
+<script src="/app-LPFBYIWO.js" defer></script>
+</body>
+</html>

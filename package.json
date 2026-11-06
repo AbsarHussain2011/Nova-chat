@@ -1,0 +1,18 @@
+{
+  "name": "novachat",
+  "version": "2.0.0",
+  "private": true,
+  "description": "NovaChat AI - multi-provider AI chat PWA (React) with a tiny Node server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build:client": "node build.mjs",
+    "dev": "node build.mjs && node server.js"
+  },
+  "engines": { "node": ">=18" },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
